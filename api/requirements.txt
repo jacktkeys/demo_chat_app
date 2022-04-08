@@ -1,0 +1,11 @@
+Flask-RESTful
+Flask-Script
+Flask
+Flask_cors
+Werkzeug
+itsdangerous
+psycopg2
+pytz
+requests
+setproctitle
+six

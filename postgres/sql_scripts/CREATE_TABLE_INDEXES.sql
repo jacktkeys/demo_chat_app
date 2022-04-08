@@ -1,0 +1,1 @@
+CREATE INDEX created_date_sort_desc ON messages (created_date DESC);
