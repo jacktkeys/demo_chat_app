@@ -4,17 +4,9 @@ from flask_restful import reqparse
 
 
 def parse_params(*arguments):
-    """
-    Parse the parameters
-    Forward them to the wrapped function as named parameters
-    """
-
     def parse(func):
-        """ Wrapper """
-
         @wraps(func)
         def resource_verb(*args, **kwargs):
-            """ Decorated function """
             parser = reqparse.RequestParser()
             for argument in arguments:
                 parser.add_argument(argument)

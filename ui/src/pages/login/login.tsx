@@ -12,7 +12,6 @@ export const LoginPage: React.FunctionComponent<LoginProps> = () => {
     const [loginError, setLoginError] = useState(false)
     const navigate = useNavigate();
 
-    // need to be able to login
     const login = () => {
         APIService.login(username).then(
             function(res) {
