@@ -22,6 +22,7 @@ class RoomRepository():
         room_data = self.db.all(rooms_command_text)
         val = []
 
+        # I really, really, really hate the next block of code. Should be refactored with one SQL query to get the messages with the room info.
         for room in room_data:
             message_command_text = "SELECT m.id, m.created_date, m.content, u.id, u.username FROM messages m INNER JOIN users u ON m.created_by = u.id WHERE m.room_id = '{0}' ORDER BY m.created_date DESC LIMIT 1".format(room[0])
             message_data = self.db.one(message_command_text)

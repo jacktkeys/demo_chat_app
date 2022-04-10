@@ -2,7 +2,7 @@ import './chatroom.scss';
 import React, { useEffect, useState } from 'react';
 import { ChatBubble } from '../chat-bubble/chat-bubble';
 import { models } from '../../models';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { getUser } from '../../utils';
 import { APIService } from '../../services';
 
@@ -13,6 +13,7 @@ type RouteParams = {
 }
 
 export const Chatroom: React.FunctionComponent<ChatroomProps> = () => {
+    const location = useLocation();
     const [message, setMessage] = useState('');
     const sendingMessage = false;
     const [messages, loadMessages] = useState<models.Message[]>();
@@ -34,7 +35,7 @@ export const Chatroom: React.FunctionComponent<ChatroomProps> = () => {
             loadMessages(data);
             reloadMessages(false);
         });
-    }, [loadingMessages]);
+    }, [loadingMessages, location]);
 
     useEffect(() => {
         let user = getUser();

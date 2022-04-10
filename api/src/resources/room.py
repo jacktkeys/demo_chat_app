@@ -6,10 +6,13 @@ from src.util import parse_params
 
 class RoomResource(Resource):
     @staticmethod
-    def get(roomid):
+    def get(roomid=None):
         repo = RoomRepository()
-        
-        return repo.get_room(roomid)
+        if roomid is None:
+            return repo.get_rooms()
+        else:
+            return repo.get_room(roomid)
+            
 
     @staticmethod
     @parse_params(
@@ -29,10 +32,3 @@ class RoomResource(Resource):
         repo = RoomRepository()
 
         return repo.delete_room(roomid)
-
-class RoomsResource(Resource):
-    @staticmethod
-    def get():
-        repo = RoomRepository()
-
-        return repo.get_rooms()

@@ -47,8 +47,8 @@ export class APIService {
         });
     }
 
-    static async rooms(): Promise<Chatroom[]> {
-        return APIService.do(`${API_URL}/rooms`, {
+    static async getRooms(): Promise<Chatroom[]> {
+        return APIService.do(`${API_URL}/room`, {
             method: 'GET',
         });
     }

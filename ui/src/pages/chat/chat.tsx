@@ -16,7 +16,7 @@ export const ChatPage: React.FunctionComponent<ChatProps> = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        APIService.rooms().then(function(res){
+        APIService.getRooms().then(function(res){
            loadRooms(res);
            setIsLoading(false);
         });
@@ -26,11 +26,6 @@ export const ChatPage: React.FunctionComponent<ChatProps> = () => {
         let user = getUser();
         loadUser(user);
     }, [isLoading]);
-
-    const changeRooms = () => {
-        setIsLoading(true);
-        //navigate("/chat"+roomid);
-    };
 
     const logout = () => {
         removeUserSession();

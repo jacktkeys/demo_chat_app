@@ -68,3 +68,5 @@ UI is written using the ReactJS library
 
 1. There was an issue when using docker compose and trying to connect the API to `localhost`. The following URL describes pretty well what is going on and how to fix it.
 - https://nayak.io/posts/docker-compose-postgres-and-connection-refused/
+1. It took me a while to find a reference to the hook to use when the `Location` changes (URL path)
+- https://9to5answer.com/detect-route-change-with-react-router
