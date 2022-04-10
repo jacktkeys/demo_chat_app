@@ -9,7 +9,9 @@ class RoomResource(Resource):
     def get(roomid=None):
         repo = RoomRepository()
         if roomid is None:
-            return repo.get_rooms()
+            data = repo.get_rooms()
+            val = sorted(data, key=lambda x: '' if x['mostRecentMessage'] is None else x['mostRecentMessage']['sentAt'], reverse=True)
+            return val
         else:
             return repo.get_room(roomid)
             
