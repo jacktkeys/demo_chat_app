@@ -13,4 +13,4 @@ class UserRepository():
     def create_user(self, username):
         command_text = "INSERT INTO users (username) VALUES ('{0}') RETURNING id".format(username)
         data = self.db.update(command_text)
-        return { "id": data[0], "name": username }
+        return data

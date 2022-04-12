@@ -67,7 +67,7 @@ class Database:
         with self.conn.cursor() as curr:
             try:
                 curr.execute(command_text)
-                data = curr.fetchone()
+                data = curr.fetchone()[0]
             except errors.UniqueViolation as e:
                 data = False
             

@@ -17,7 +17,8 @@ export const SignUpPage: React.FunctionComponent<SignUpProps> = () => {
             if (typeof(res) == 'boolean') {
                 setErrorMessage(true);
             } else {
-                setUserSession(res);
+                let user = { "id": res, "name": username }
+                setUserSession(user);
                 navigate('/chat')
             }
         });
